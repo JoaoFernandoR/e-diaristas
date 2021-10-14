@@ -1,4 +1,6 @@
 import React from 'react'
+// Styles
+import { PageTitleContainer, PageTitleStyled, PageSubtitleStyled } from './PageTitle.style'
 
 interface PageTitleProps {
     title: string;
@@ -7,10 +9,10 @@ interface PageTitleProps {
 
 const PageTitle = ({ title, subtitle }: PageTitleProps) => {
     return (
-        <div>
-            <h1> {title}</h1>
-            <h1> {subtitle}</h1>
-        </div>
+        <PageTitleContainer>
+            <PageTitleStyled> {title}</PageTitleStyled>
+            <PageSubtitleStyled> {subtitle}</PageSubtitleStyled>
+        </PageTitleContainer>
     )
 }
 
