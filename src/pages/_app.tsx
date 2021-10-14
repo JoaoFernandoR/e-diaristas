@@ -1,6 +1,7 @@
 import Head from "next/head";
 // Components
 import Header from "../components/surfaces/Header/Header";
+import Footer from "../components/surfaces/Footer/Footer";
 // Types
 import type { AppProps } from "next/app";
 // Theme
@@ -8,6 +9,7 @@ import { ThemeProvider } from "@mui/material";
 import theme from "../themes/theme";
 // Styles
 import "../styles/globals.css";
+import { AppContainer } from "../styles/pages/_app.style";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
@@ -31,8 +33,11 @@ function MyApp({ Component, pageProps }: AppProps) {
                 />
             </Head>
             <ThemeProvider theme={theme}>
-                <Header />
-                <Component {...pageProps} />
+                <AppContainer>
+                    <Header />
+                    <Component {...pageProps} />
+                    <Footer />
+                </AppContainer>
             </ThemeProvider>
         </>
     );
