@@ -1,6 +1,8 @@
-import { Button, Typography, Container } from "@mui/material";
+import { Button, Container } from "@mui/material";
 // Types
 import type { NextPage } from "next";
+// Hooks
+import useIndex from "../hooks/pages/useIndex.page";
 // Components
 import PageTitle from "../components/data-display/PageTitle/PageTitle";
 import UserInformation from "../components/data-display/UserInformation/UserInformation";
@@ -14,6 +16,8 @@ import {
 } from "../styles/pages/index.style";
 
 const App: NextPage = () => {
+    const { cep, setCep, cepValido } = useIndex();
+
     return (
         <>
             <SafeEnvironment />
@@ -30,8 +34,11 @@ const App: NextPage = () => {
                         fullWidth
                         mask={"99.999-999"}
                         variant={"outlined"}
+                        value={cep}
+                        onChange={(event) => setCep(event.target.value)}
+                        error={cep ? !cepValido : false}
                     />
-                    <Typography color={"error"}> CEP inválido</Typography>
+                    {/* <Typography color={"error"}> CEP inválido</Typography> */}
                     <Button
                         variant={"contained"}
                         color={"secondary"}

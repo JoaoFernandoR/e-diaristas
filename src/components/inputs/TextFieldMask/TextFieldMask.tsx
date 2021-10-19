@@ -5,11 +5,17 @@ import TextField from "../TextField/TextField";
 
 export interface TextFieldMaskProps extends OutlinedTextFieldProps {
     mask: string;
+    value: string;
 }
 
-const TextFieldMask = ({ mask, ...props }: TextFieldMaskProps) => {
+const TextFieldMask = ({
+    mask,
+    value,
+    onChange,
+    ...props
+}: TextFieldMaskProps) => {
     return (
-        <InputMask mask={mask}>
+        <InputMask mask={mask} value={value} onChange={onChange}>
             {() => {
                 return <TextField {...props} />;
             }}
