@@ -24,7 +24,8 @@ export const FooterContainer = styled(Container)`
 export const AppList = styled("ul")`
     display: flex;
 
-    gap: ${({ theme }) => theme.spacing()};
+    gap: ${({ theme }) => theme.spacing(2)};
+    margin-top: ${({ theme }) => theme.spacing(2)};
 
     img {
         width: 122px;
